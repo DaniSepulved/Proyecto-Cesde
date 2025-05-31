@@ -19,23 +19,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Cuestionarios")
+@Table(name = "Preguntas") // <- Cambiado de "Cuestionarios" a "Preguntas"
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Preguntas {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_pregunta;
+    private Long idPregunta;
 
     @Column(nullable = false)
     private String texto;
 
     @ManyToOne
-    @JoinColumn(name = "id_cuestionario", nullable = false)
-    private Cuestionarios cuestionarios;
+    @JoinColumn(name = "idCuestionario", nullable = false)
+    private Cuestionarios cuestionario;
 
-    @OneToMany(mappedBy = "pregunta", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "preguntas", cascade = CascadeType.ALL)
     private List<Respuestas> respuestas;
 }

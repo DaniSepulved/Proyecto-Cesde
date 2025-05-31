@@ -1,12 +1,9 @@
 package com.example.notas.repository;
 
+import com.example.notas.model.Profesores;
+import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.example.notas.model.Profesores;
-
 public interface ProfesoresRepository extends JpaRepository<Profesores, Long> {
-    Optional<Profesores> findById(Long id_profesor);
-
+    Optional<Profesores> findByEmail(String email);
 }

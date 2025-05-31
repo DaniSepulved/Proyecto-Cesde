@@ -1,6 +1,7 @@
 package com.example.notas.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,11 +24,11 @@ public class Respuestas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_respuesta;
 
-    @ManyToOne
-    @JoinColumn(name = "id_pregunta", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idPregunta", referencedColumnName = "idPregunta", nullable = false)
     private Preguntas preguntas;
 
-    @ManyToOne
-    @JoinColumn(name = "id_estudiante", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idEstudiante", referencedColumnName = "idEstudiante", nullable = false)
     private Estudiantes estudiantes;
 }

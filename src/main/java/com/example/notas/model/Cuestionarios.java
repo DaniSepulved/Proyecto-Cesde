@@ -24,16 +24,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class Cuestionarios {
-    @Id
+        @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_cuestionario;
+    private Long idCuestionario;
 
     @Column(nullable = false)
     private String titulo;
 
     @ManyToOne
-    @JoinColumn(name = "id_profesor", nullable = false)
-    private Profesores profesores;
+    @JoinColumn(name = "idProfesor", nullable = false)
+    private Profesores profesor;
 
     @OneToMany(mappedBy = "cuestionario", cascade = CascadeType.ALL)
     private List<Preguntas> preguntas;

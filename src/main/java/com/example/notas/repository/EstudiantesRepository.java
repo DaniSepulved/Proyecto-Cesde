@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.notas.model.Estudiantes;
 
 public interface EstudiantesRepository extends JpaRepository<Estudiantes, Long> {
-    Optional<Estudiantes> findById(Long id_estudiante);
+    Optional<Estudiantes> findByEmail(String email);
 }

@@ -1,11 +1,13 @@
 package com.example.notas.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
+import org.springframework.stereotype.Repository;
 import com.example.notas.model.Respuestas;
+import java.util.List;
 
+@Repository
 public interface RespuestasRepository extends JpaRepository<Respuestas, Long> {
-    Optional<Respuestas> findById(Long id_respuesta);
+    List<Respuestas> findByPreguntasIdPregunta(Long idPregunta);
+    List<Respuestas> findByEstudiantesIdEstudiante(Long idEstudiante);
+    List<Respuestas> findByPreguntasIdPreguntaAndEstudiantesIdEstudiante(Long idPregunta, Long idEstudiante);
 }
